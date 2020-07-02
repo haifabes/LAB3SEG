@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<! This style sheet is taken from  https://www.w3schools.com/howto/howto_js_tabs.asp>
+	<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<div class="header">
+	<h1> The Local grocery store  </h1>
+</div>
+<body>
+
+
+
+
+
+<!-- Tab links, each one with an onclick event associated with it -->
+<div class="tab">
+  <button class="tablinks" onclick="openInfo(event, 'Client')">Client</button>
+  <button class="tablinks" onclick="openInfo(event, 'Products')">Products</button>
+  <button class="tablinks" onclick="openInfo(event, 'Cart')">Cart</button>
+</div>
+
+<!-- Tab content -->
+<div id="Client" class="tabcontent">
+  <h3>Client Information</h3>
+  <p>Tell us a bit about you.</p>
+	Choose a Category:
+	
+	<select id="dietSelect" name="dietSelect" onchange="populateListProductChoices(this.id, 'displayProduct')">
+	<option value=""></option>
+	<option value="Vegetarian">Vegetarian</option>
+    <option value="GlutenFree">GlutenFree</option>
+	<option value="organic">Organic</option>
+	<option value="GV"> GlutenFree and Vegetarian</option>
+    <option value="GO"> GlutenFree and Organic</option>
+    <option value="VO"> Vegetarian and Organic</option>
+    <option value="GVO"> GlutenFree, Vegetarian and Organic</option>
+    <option value="None">None</option> 
+	</select>
+	
+</div>
+
+<div id="Products" class="tabcontent">
+	
+  <h3>Your targeted products</h3>
+  <p>We preselected products based on your restrictions.</p>
+ <div id="div1"></div>
+            Category:
+            <select id="categorySelect" name="categorySelect" onchange="applyFilters()">
+            <option value="">(Please make a selection)</option>
+            <option value="all">All</option>
+            <option value="bakery">Bakery</option>
+            <option value="fruits">Fruits</option>
+            <option value="meat">Meat</option>
+            <option value="Vegetables">Vegetables</option>
+            </select>
+            <br>
+            Choose items to buy: <br>
+            <div id="displayProduct"></div>
+	
+	 Choose items to buy:
+	 <div id="displayProduct"></div>
+	 <button id="addCart" type="button" class="block" onclick="selectedItems()">
+		Add selected items to cart.
+	</button>
+</div>
+
+<div id="Cart" class="tabcontent">
+  <h3>Cart</h3>
+  <p>Here is your cart.</p>
+  <div id="displayCart"></div>
+</div>
+
+<script src="groceries.js"></script>
+<script src="main.js"></script>
+
+</body>
+</html>
